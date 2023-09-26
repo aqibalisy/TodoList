@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To Do list</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+    <div class="box" id="heading">
     <h1> <%= kindOfDay  %></h1>
-    <ul>
-        <li>cook</li>
-        <li>eat</li>
-        <li>drink</li>
+    </div>
+    
+    <div class="box">
+
       <%  for (let i = 0; i <items.length; i++) {%>  
-            <li><%=  items[i] %></li>
+       
+       <div class="item"> 
+
+        <input type="checkbox" >
+          <p class="line"><%=  items[i] %></p>
+          
+          </div>
       <%   } %>
-    </ul>
-    <form action="/" method="post">
-        <input type="text" name="newItem">
-        <button type="submit">Add</button>
+   
+    <form class="data" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New item" autocomplete="off">
+        <button type="submit">+</button>
     </form>
+</div>
 </body>
+<footer>
+  Copyright 2023 Aqib ali
+</footer>
 </html>
