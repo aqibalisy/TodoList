@@ -6,6 +6,7 @@ const port = 3000;
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 let item = [];
+let workitems = [];
 
 app.get('/', (req, res) => {
   let options = {
@@ -17,14 +18,28 @@ app.get('/', (req, res) => {
   let today = new Date();
   let day = today.toLocaleDateString('en-US', options);
 
-  res.render('index.ejs', { kindOfDay: day, items: item });
+  res.render('index.ejs', {
+     listTitle: day, 
+     items: item });
 });
 
 app.post('/', (req, res) => {
   let newItems = req.body.newItem;
-  item.push(newItems);
-  res.redirect('/');
+  if(req.body.list==="Work"){
+    workitems.push(newItems);
+   res.redirect('/work');
+  }
+  else{
+    item.push(newItems);
+    res.redirect("/")
+  }
 });
+app.get('/work', (req, res) => {
+  res.render("index.ejs"),{
+listTitle: "Work list",
+items: workitems
+  }
+})
 
 app.listen(port, () => {
   console.log(`listening on port${port}`);
