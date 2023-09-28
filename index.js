@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   let newItems = req.body.newItem;
-  if(req.body.list==="Work"){
+  if(req.body.list==="Work list"){
     workitems.push(newItems);
    res.redirect('/work');
   }
@@ -35,10 +35,10 @@ app.post('/', (req, res) => {
   }
 });
 app.get('/work', (req, res) => {
-  res.render("index.ejs"),{
+  res.render("index.ejs",{
 listTitle: "Work list",
 items: workitems
-  }
+  })
 })
 
 app.listen(port, () => {

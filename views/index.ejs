@@ -1,37 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do list</title>
-    <link rel="stylesheet" href="styles/main.css">
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>To Do list</title>
+      <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
 
-  
-    <div class="box" id="heading">
-    <h1> <%= listTitle  %></h1>
-    </div>
+	<nav>
+
+<form action="/" method="GET">
+  <button class="navbtn" type="submit">Home</button>
+</form>
+<form action="/work" method="GET">
+  <button class="navbtn" type="submit">Work</button>
+</form>	
+		</nav>
+
     
-    <div class="box">
+      <div class="box" id="heading">
+      <h1> <%= listTitle  %></h1>
+      </div>
+      
+      <div class="box">
 
-      <%  for (let i = 0; i <items.length; i++) {%>  
-       
-       <div class="item"> 
+        <%  for (let i = 0; i <items.length; i++) {%>  
+        
+        <div class="item"> 
 
-        <input type="checkbox" >
-          <p class="line"><%=  items[i] %></p>
-          
-          </div>
-      <%   } %>
-   
-    <form class="data" action="/" method="post">
-        <input type="text" name="newItem" placeholder="New item" autocomplete="off">
-        <button type="submit" name="list" value=<% listTitle %>>+</button>
-    </form>
-</div>
-</body>
-<footer>
-  Copyright 2023 Aqib ali
-</footer>
-</html>
+          <input type="checkbox" >
+            <p class="line"><%=  items[i] %></p>
+            
+            </div>
+        <%   } %>
+    
+      <form class="data" action="/" method="post">
+          <input type="text" name="newItem" placeholder="New item" autocomplete="off">
+          <button class="btn" type="submit" name="list" value="<%= listTitle %>">+</button>
+      </form>
+  </div>
+  </body>
+  <footer>
+    Copyright 2023 Aqib ali
+  </footer>
+  </html>
