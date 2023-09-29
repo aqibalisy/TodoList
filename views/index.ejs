@@ -25,12 +25,12 @@
       
       <div class="box">
 
-        <%  for (let i = 0; i <items.length; i++) {%>  
+        <%  for (let item of items) {%>  
         
         <div class="item"> 
 
           <input type="checkbox" >
-            <p class="line"><%=  items[i] %></p>
+            <p class="line"><%=  item %></p>
             
             </div>
         <%   } %>

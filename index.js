@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-let item = [];
+let item = ["Eat","Code","Repeat"];
 let workitems = [];
 
 app.get('/', (req, res) => {
